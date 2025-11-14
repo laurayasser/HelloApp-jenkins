@@ -91,6 +91,28 @@ variable "node_disk_size" {
   type        = number
 }
 
+# Add to your existing variables.tf
+
+variable "additional_iam_users" {
+  description = "Additional IAM users to grant cluster access"
+  type = list(object({
+    userarn  = string
+    username = string
+    groups   = list(string)
+  }))
+  default = []
+}
+
+variable "additional_iam_roles" {
+  description = "Additional IAM roles to grant cluster access"
+  type = list(object({
+    rolearn  = string
+    username = string
+    groups   = list(string)
+  }))
+  default = []
+}
+
 variable "enable_cluster_encryption" {
   description = "Enable encryption for EKS cluster secrets"
   type        = bool

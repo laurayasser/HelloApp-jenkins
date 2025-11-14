@@ -102,32 +102,3 @@ variable "additional_iam_roles" {
   }))
   default = []
 }
-
-# Output the aws-auth ConfigMap data
-output "aws_auth_configmap_yaml" {
-  description = "AWS auth ConfigMap for EKS"
-  value = yamlencode({
-    apiVersion = "v1"
-    kind       = "ConfigMap"
-    metadata = {
-      name      = "aws-auth"
-      namespace = "kube-system"
-    }
-    data = {
-      mapRoles = yamlencode(concat(
-        [
-          {
-            rolearn  = aws_iam_role.eks_node.arn
-            username = "system:node:{{EC2PrivateDNSName}}"
-            groups = [
-              "system:bootstrappers",
-              "system:nodes"
-            ]
-          }
-        ],
-        var.additional_iam_roles
-      ))
-      mapUsers = yamlencode(var.additional_iam_users)
-    }
-  })
-}

@@ -37,7 +37,7 @@ allowed_ssh_ips = ["0.0.0.0/0"]  # Replace with your IP for production
 # ============================================================================
 # IAM ACCESS CONFIGURATION - Grant Console Access
 # ============================================================================
-# Add your IAM user ARN here (get it with: aws sts get-caller-identity)
+# Add your IAM uarn:aws:iam::923102106536:user/laura"
 additional_iam_users = [
   {
     userarn  = "arn:aws:iam::742674388365:user/cli-user"  # REPLACE THIS

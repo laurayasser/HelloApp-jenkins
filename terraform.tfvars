@@ -40,7 +40,7 @@ allowed_ssh_ips = ["0.0.0.0/0"]  # Replace with your IP for production
 # Add your IAM uarn:aws:iam::923102106536:user/laura"
 additional_iam_users = [
   {
-    userarn  = "arn:aws:iam::742674388365:user/cli-user"  # REPLACE THIS
+    userarn  = "arn:aws:iam::923102106536:user/laura"  # REPLACE THIS
     username = "laura"
     groups   = ["system:masters"]
   }
